@@ -1,5 +1,5 @@
 {
-  "name": "Gulp starter kit",
+  "name": "babel",
   "version": "1.0.0",
   "description": "Starterkit based on Gulp and Bower including: Sass with minified css and sourcemaps, uglified JS with ES6 and Babel with browserSync on the top.",
   "main": "index.js",
@@ -14,6 +14,7 @@
     "gulp": "3.8.11",
     "gulp-autoprefixer": "2.1.0",
     "gulp-babel": "5.1.0",
+    "gulp-bower": "0.0.10",
     "gulp-cache": "0.2.8",
     "gulp-concat": "2.5.2",
     "gulp-imagemin": "2.2.1",

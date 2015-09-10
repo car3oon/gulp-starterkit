@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     autoprefixer = require('gulp-autoprefixer');
     babel = require('gulp-babel'),
+    bower = require('gulp-bower');
     concat = require('gulp-concat'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
