@@ -9,8 +9,11 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "app/bower_components",
+    "src/bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5"
+  }
 }

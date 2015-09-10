@@ -18,21 +18,25 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync');
 
+var config = {
+  prodDir: 'build'
+}
+
 gulp.task('clean', function() {
-  return gulp.src('./build/**/*', {read: false})
+  return gulp.src(config.prodDir + '/**/*', {read: false})
     .pipe(rm());
 })
 
 gulp.task('copy-index', function() {
   gulp.src('src/index.html')
-  .pipe(gulp.dest('build'))
+  .pipe(gulp.dest(config.prodDir))
   .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('browser-sync', function() {
   browserSync({
     server: {
-       baseDir: "build"
+       baseDir: config.prodDir
     }
   });
 });
@@ -61,11 +65,11 @@ gulp.task('styles', function(){
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(sass())
     .pipe(postcss(processors))
-    .pipe(gulp.dest('build/styles/'))
+    .pipe(gulp.dest(config.prodDir + '/styles/'))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
     .pipe(sourcemaps.write('/'))
-    .pipe(gulp.dest('build/styles/'))
+    .pipe(gulp.dest(config.prodDir + '/styles/'))
     .pipe(browserSync.reload({stream:true}))
 });
 
@@ -80,10 +84,10 @@ gulp.task('scripts', function(){
     .pipe(jshint.reporter('default'))
     .pipe(concat('app.js'))
     .pipe(babel())
-    .pipe(gulp.dest('build/scripts/'))
+    .pipe(gulp.dest(config.prodDir + '/scripts/'))
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
-    .pipe(gulp.dest('build/scripts/'))
+    .pipe(gulp.dest(config.prodDir + '/scripts/'))
     .pipe(browserSync.reload({stream:true}))
 });
 
