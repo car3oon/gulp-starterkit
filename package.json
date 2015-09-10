@@ -1,0 +1,30 @@
+{
+  "name": "Gulp starter kit",
+  "version": "1.0.0",
+  "description": "Starterkit based on Gulp and Bower including: Sass with minified css and sourcemaps, uglified JS with ES6 and Babel with browserSync on the top.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "car3oon",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "2.6.5",
+    "css-mqpacker": "^4.0.0",
+    "gulp": "3.8.11",
+    "gulp-autoprefixer": "2.1.0",
+    "gulp-babel": "5.1.0",
+    "gulp-cache": "0.2.8",
+    "gulp-concat": "2.5.2",
+    "gulp-imagemin": "2.2.1",
+    "gulp-jshint": "1.10.0",
+    "gulp-minify-css": "1.0.0",
+    "gulp-plumber": "1.0.0",
+    "gulp-postcss": "^6.0.0",
+    "gulp-rename": "1.2.2",
+    "gulp-rm": "^1.0.0",
+    "gulp-sass": "1.3.3",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "1.2.0"
+  }
+}

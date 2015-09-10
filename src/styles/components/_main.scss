@@ -1,0 +1,16 @@
+body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 14px;
+  background: $bg-color;
+  color: $main-color;
+
+  h1 {
+    color: $headings-color;
+    font-size: 30px;
+    display: block;
+    border-radius: 5px;
+    background: lighten($main-color, 25%);
+    margin: 2em;
+    padding: 1em;
+  }
+}
