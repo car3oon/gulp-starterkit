@@ -17,7 +17,10 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync'),
-    wiredep = require('wiredep').stream;
+    wiredep = require('wiredep').stream,
+    useref = require('gulp-useref'),
+    filter = require('gulp-filter'),
+    inject = require('gulp-inject');
 
 var config = {
   prodDir: 'build'
@@ -35,9 +38,38 @@ gulp.task('copy-index', function() {
 });
 
 gulp.task('bower', function () {
-  gulp.src('src/index.html')
-    .pipe(wiredep())
-    .pipe(gulp.dest(config.prodDir));
+	return gulp.src('src/*.html')
+		.pipe(wiredep({
+			directory: 'src/bower_components'
+		}))
+		.pipe(gulp.dest('config.prodDir'))
+		.pipe(reload({stream:true}))
+});
+
+gulp.task('inject', function(){
+	return gulp.src(config.prodDir + '/index.html')
+		.pipe(gulp.src([config.prodDir + '/styles/**',config.prodDir + '/scripts/**'],
+			{read: false}), {ignorePath: config.prodDir + '/', addRootSlash: false})
+		.pipe(gulp.dest(config.prodDir))
+		.pipe(reload({stream:true}));
+});
+
+gulp.task('useref', function () {
+	var jsFilter = filter('**/*.js');
+	var cssFilter = filter('**/*.css');
+  // @TODO fix files injection
+  //  return gulp.src('app/*.html')
+	// 	.pipe($.useref.assets())
+	// 	.pipe(jsFilter)
+	// 	.pipe($.ngmin())
+	// 	.pipe($.uglify())
+	// 	.pipe(jsFilter.restore())
+	// 	.pipe(cssFilter)
+	// 	.pipe($.csso())
+	// 	.pipe(cssFilter.restore())
+	// 	.pipe($.useref.restore())
+	// 	.pipe($.useref())
+	// 	.pipe(gulp.dest('./build'))
 });
 
 gulp.task('browser-sync', function() {

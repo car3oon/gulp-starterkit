@@ -3,14 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <title>Gulp Starterkit</title>
-  <!-- bower:css -->
-  <!-- endbower -->
-  <link rel="stylesheet" href="styles/app.min.css">
+
+  <!-- build:css css/vendor.min.css -->
+		<!-- bower:css -->
+		<!-- endbower -->
+	<!-- endbuild -->
+
+  <!-- build:css css/app.min.css -->
+		<!-- inject:css -->
+		<link rel="stylesheet" href="styles/app.css">
+		<!-- endinject -->
+	<!-- endbuild -->
+
 </head>
 <body>
   <h1>Gulp Starterkit</h1>
-  <!-- bower:js -->
-  <!-- endbower -->
-  <script src="scripts/app.min.js"></script>
+
+  <!-- build:js js/vendor.min.js -->
+		<!-- bower:js -->
+		<!-- endbower -->
+	<!-- endbuild -->
+
+	<!-- build:js js/app.min.js -->
+		<!-- inject:js -->
+		<script src="scripts/app.js"></script>
+		<!-- endinject -->
+  <!-- endbuild -->
+
 </body>
 </html>
